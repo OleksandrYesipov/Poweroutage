@@ -13,7 +13,7 @@ namespace PowerOutageParser.Controllers
     public class PowerOutageController : ControllerBase
     {
 
-        [HttpGet]
+        [HttpGet("districsPowerInfo")]
         public async Task<HashSet<AddressModel>> DistricsPowerInfo(int placeId, string date = "26-04-2020")
         {
             var page = APIClient.GetOblenergoPage(placeId, "26-04-2020");
@@ -21,7 +21,7 @@ namespace PowerOutageParser.Controllers
             return placesInfo;
         }
 
-        [HttpGet]
+        [HttpGet("Districs")]
         public async Task<List<PlaceModel>> Districs()
         {
             var page = APIClient.GetOblenergoPage(24, "26-04-2020");

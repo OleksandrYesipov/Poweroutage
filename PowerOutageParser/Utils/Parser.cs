@@ -39,7 +39,7 @@ namespace PowerOutageParser.Utils
             var document = await context.OpenAsync(req => req.Content(page));
             var table = document.QuerySelector("[class='sticky-enabled']").ToHtml();
             document = await context.OpenAsync(req => req.Content(table));
-            var a = document.QuerySelector("tr");
+     
             var tbody = document.QuerySelector("tbody").ToHtml();
             var listOfPlaces = document.QuerySelectorAll("tr").ToList();
             var addresses = new HashSet<AddressModel>();
@@ -74,6 +74,7 @@ namespace PowerOutageParser.Utils
                     placeFromSet.Streets.Add(streetModel);
                 }
             }
+            
             return addresses;
        }
 
